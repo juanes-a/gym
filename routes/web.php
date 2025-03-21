@@ -20,6 +20,9 @@ Route::post('/action-register', [RegisterController::class, 'register']); */
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
+
+    Route::get('/', 'WelcomeController@show')->name('welcome.index'); 
+
     /**
      * Home Routes
      */

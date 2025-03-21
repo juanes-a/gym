@@ -25,8 +25,12 @@
                 <span class="text-danger text-left">{{ $errors->first('password') }}</span>
             @endif
         </div>
-
+       
         <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+        <div> 
+            <p>Don't have an account? <a href="/register" aria-label="Sign up here">Sign up</a></p>
+        </div>
+
         
         @include('auth.partials.copy')
     </form>
