@@ -13,12 +13,18 @@ class LogoutController extends Controller
      *
      * @return \Illuminate\Routing\Redirector
      */
-    public function perform()
+    public function perform(Request $request)
     {
         Session::flush();
-        
-        Auth::logout();
-
+    
+        if (Auth::guard('trainer')->check()) {
+            Auth::guard('trainer')->logout();
+        } else {
+            Auth::logout();
+        }
+    
         return redirect()->route('login.show');
     }
+    
+    
 }

@@ -1,8 +1,8 @@
 <?php
 
+
 namespace App\Http\Middleware;
 
-use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +23,12 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // Redirige a la ruta correcta según el tipo de usuario
+                if (Auth::guard('trainer')->check()) {
+                    return redirect()->route('trainer.index');
+                }
+
+                return redirect()->route('user.index');
             }
         }
 

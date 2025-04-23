@@ -15,7 +15,6 @@ class RegisterRequest extends FormRequest
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -28,12 +27,7 @@ class RegisterRequest extends FormRequest
             'email' => 'required|min:3',
             'username' => 'required|min:3',
             'password' => 'required|min:3',
-            'password_confirmation' => 'required|same:password'
-            /* 'name' => 'required|min:3',
-            'email' => 'required|email:rfc,dns|unique:users,email',
-            'username' => 'required|unique:users,username',
-            'password' => 'required|min:8',
-            'password_confirmation' => 'required|same:password' */
+            'password_confirmation' => 'required|same:password',
         ];
     }
 }
